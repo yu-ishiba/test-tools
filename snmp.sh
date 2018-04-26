@@ -1,6 +1,5 @@
 #!/bin/bash
 
-COMMUNITY=$1
 OID="1.3.6.1.4.1.2636.3.1.13.1.8.9.1.0.0"
 DIR="/home/ubuntu/"
  
@@ -11,6 +10,7 @@ DIR="/home/ubuntu/"
 #LOG_FILE="vSRX_snmp_log_${DATE}.txt"
 #FILE_PATH=/home/ubuntu
 TARGET=$1
+COMMUNITY=$2
 SLEEP=1
 SEQ=1
  
