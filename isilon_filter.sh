@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#This scritp is filter to stop NFS traffic from HV to isilon for 5min.
+
 NFSIP=`/bin/mount | /usr/bin/grep "/var/lib/nova/instances" | /usr/bin/awk '{print substr($0, index($0, ",addr="))}' | /bin/sed 's/,addr=\(.*\))/\1/'`
 
 if [ $? -ne 0 ]; then
