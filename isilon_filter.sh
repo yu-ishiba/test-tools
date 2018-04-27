@@ -2,6 +2,8 @@
 
 #This scritp is filter to stop NFS traffic from HV to isilon for 5min.
 
+SLEEP_MIN=5
+
 NFSIP=`/bin/mount | /usr/bin/grep "/var/lib/nova/instances" | /usr/bin/awk '{print substr($0, index($0, ",addr="))}' | /bin/sed 's/,addr=\(.*\))/\1/'`
 
 if [ $? -ne 0 ]; then
@@ -33,7 +35,7 @@ echo -e "\n\n"
 /sbin/iptables -L
 
 echo -e "\n\n"
-for i in `seq 5`; do sleep 60; echo "$i min $(date)"; done
+for i in `seq ${SLEEP_MIN}`; do sleep 60; echo "### $i min $(date)"; done
 
 echo -e "\n\n"
 eval $IPTABLES_D
